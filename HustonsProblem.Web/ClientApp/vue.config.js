@@ -6,7 +6,7 @@ module.exports = defineConfig({
 	filenameHashing: false,
 	productionSourceMap: true,
 	publicPath: "./",
-	outputDir: path.resolve("../StaticFiles/js/themeUi"),
+	outputDir: path.resolve("../wwwroot/"),
 	chainWebpack: (config) => {
 		config.optimization.delete("splitChunks");
 		config.plugin("limitSplitChunks").use(webpack.optimize.LimitChunkCountPlugin, [{ maxChunks: 1 }]);
