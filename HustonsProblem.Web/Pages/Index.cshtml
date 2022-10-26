@@ -7,9 +7,15 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-   
+
     <div>
         <vue component="hello-world"></vue>
     </div>
 </div>
 
+<script>
+    console.log("java script is working")
+    setTimeout(()=> {
+        window.iw.vue.eventStore.emitNewEvent("hello-daniel")
+    }, 1500)
+</script>

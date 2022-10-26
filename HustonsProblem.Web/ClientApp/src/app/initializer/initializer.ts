@@ -1,7 +1,5 @@
-import Vue from "vue";
 import { importPackage, Package } from "./vue-hybrid-framework/dynamics";
 import { loadFromDOM as loadRootVueComponentsFromDOM } from "./vue-hybrid-framework/vue-components-loader";
-
 export async function initApplication(mainPackage: Package) {
 	console.debug("[App] Initializing Application...");
 

@@ -1,4 +1,6 @@
+import { useEventStore } from "./../../../store/event-store";
 import Vue, { AsyncComponent } from "vue";
+import { pinia } from "../pinia/pinia";
 import { resolveOne } from "./dynamics";
 
 Vue.config.devtools = true;
@@ -11,11 +13,9 @@ export async function loadFromDOM() {
 	vueElements.forEach((el) => {
 		console.debug(`Attaching Vue Compoment: ${el.getAttribute("component")}...`);
 
-		var props: Array<Attr> = [].slice
-			.call(el.attributes)
-			.filter(function (attr: Attr) {
-				return !attr || !attr.name || attr.name.indexOf("component") != 0;
-			});
+		var props: Array<Attr> = [].slice.call(el.attributes).filter(function (attr: Attr) {
+			return !attr || !attr.name || attr.name.indexOf("component") != 0;
+		});
 
 		var propsStr: Array<string> = props.map((attr) => {
 			// Remove "vue-loader" class if exists
@@ -49,7 +49,19 @@ export async function loadFromDOM() {
 			components: {
 				[tagName]: getComponent(componentId),
 			},
+			pinia,
 		});
+
+		//@ts-ignore, cant wats
+		window.Vue = Vue;
+
+		//@ts-ignore, cant wats
+		window.iw = {};
+
+		//@ts-ignore, cant wats
+		window.iw.vue = {
+			eventStore: useEventStore(pinia),
+		};
 	});
 }
 
