@@ -1,0 +1,47 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "checkJs": false,
+    "allowJs": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "importsNotUsedAsValues": "preserve",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env",
+          ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "node_modules"
+  ]
+}
